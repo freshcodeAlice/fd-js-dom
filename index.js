@@ -1,20 +1,15 @@
+/*
+Використовуючи наявну колекцію з 5 кнопок, за натиснення на будь-яку кнопку виведіть на консоль "Клік по кнопці"
 
-function clickHandler() {
-    alert('Achievement unlocked')
-}
-
-const btn = document.querySelector('#first-btn');
-
-
-btn.addEventListener('click', function(){
-    console.log('BUTTON CLICKED')
-});
+*/
 
 function logger() {
-    prompt('How old are you')
+    console.log('BUTTON CLICKED')
 }
 
-btn.addEventListener('click', logger)
+const btnCollection = document.querySelectorAll('button');
 
+for (const btn of btnCollection) {
+    btn.addEventListener('click', logger)
+}
 
-btn.removeEventListener('click', logger)
