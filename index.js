@@ -1,11 +1,20 @@
 
-// function click() {
-//     alert('Achievement unlocked')
-// }
-
-
-const btnCollection = document.querySelectorAll('button');
-
-for (const btn of btnCollection) {
-    btn.innerText = 'DON`T CLICK';
+function clickHandler() {
+    alert('Achievement unlocked')
 }
+
+const btn = document.querySelector('#first-btn');
+
+
+btn.addEventListener('click', function(){
+    console.log('BUTTON CLICKED')
+});
+
+function logger() {
+    prompt('How old are you')
+}
+
+btn.addEventListener('click', logger)
+
+
+btn.removeEventListener('click', logger)
