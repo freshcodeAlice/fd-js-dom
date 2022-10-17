@@ -1,17 +1,15 @@
-//let value = 10;
 
 
-
-function wrapper() {
-    let value = 20;
-    console.log('WRAPPER value', value);
-
-    return function log(){
-        console.log('LOG value:', ++value);
+function makeCounter() {
+    let i = 0;
+    return {
+        increment: function() {
+            return ++i;
+        },
+        decrement: function(){
+            return --i;
+        }
     }
-
     
 }
 
-const resFunc = wrapper();
-// resFunc();
