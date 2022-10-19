@@ -15,14 +15,30 @@ Remaster:
 
 
 const div = document.querySelector('.field');
+const box = document.querySelector('#box');
+const score = document.querySelector('#score');
+
+let scoreCount = 0;
+updateScore();
 
 div.addEventListener('click', clickHandler, true);
 
 function clickHandler(event) {
-    event.stopPropagation();
-    if(event.currentTarget === event.target) {
-        const box = event.target.children.box;
-        box.style.left = `${event.clientX - (box.offsetWidth / 2)}px`;
-        box.style.top = `${event.clientY - (box.offsetHeight / 2)}px`;
-    }
+    const {target, currentTarget} = event;
+        if (currentTarget === target) {
+            updateScore(-1);
+        } else {
+            updateScore(1);
+        }
+     box.style.left = `${getRandomCoordinates(currentTarget.offsetWidth)}px`;
+     box.style.top = `${getRandomCoordinates(currentTarget.offsetHeight)}px`;
+}
+
+function updateScore(step = 0) {
+    scoreCount += step;
+    score.textContent = scoreCount;
+}
+
+function getRandomCoordinates(max){
+    return Math.floor(Math.random() * max);
 }
