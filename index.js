@@ -15,7 +15,6 @@ Remaster:
 
 
 const div = document.querySelector('.field');
-const box = document.querySelector('#box');
 const score = document.querySelector('#score');
 
 let scoreCount = 0;
@@ -25,6 +24,8 @@ div.addEventListener('click', clickHandler, true);
 
 function clickHandler(event) {
     const {target, currentTarget} = event;
+    const box = currentTarget.children.box;
+
         if (currentTarget === target) {
             updateScore(-1);
         } else {
