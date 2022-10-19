@@ -1,45 +1,33 @@
-/*
-Маленький квадратик #box всередині великого діва .field
-За натиснення на .field перемістити квадратик туди, куди було натиснуто.
-
-Remaster:
-Зелений #box має переміщатись рандомним чином, ми маємо курсором його наздоганяти.
-Зробити поряд з полем секцію-каунтер.
-
-За натиснення на поле, якщо курсор бувв межах зеленого box, збільшити рахунок на 1.
-Якщо "промазав", то зменшити рахунок на 1.
-
-в будь-якому разі перемістити box на нові координати
-
-*/
+const DB = [
+    './images/136acde59b8ec0fc271f534e3f5a6494.jpeg',
+    './images/1617079715_51-p-oboi-priroda-vecher-53.jpg',
+    './images/1622211351_27-oir_mobi-p-russkaya-priroda-priroda-krasivo-foto-28.jpg',
+    './images/1623706543_34-oir_mobi-p-krasivaya-priroda-mira-priroda-krasivo-fot-35.jpg',
+    './images/Живая-природа.jpg',
+    './images/Desert_Electric.jpg'
+];
 
 
-const div = document.querySelector('.field');
-const score = document.querySelector('#score');
+const img = document.querySelector('.img');
+const [prevBtn, nextBtn] = document.querySelectorAll('.slider-wrapper > .btn');
 
-let scoreCount = 0;
-updateScore();
+const slider = new Slider(DB);
 
-div.addEventListener('click', clickHandler, true);
-
-function clickHandler(event) {
-    const {target, currentTarget} = event;
-    const box = currentTarget.children.box;
-
-        if (currentTarget === target) {
-            updateScore(-1);
-        } else {
-            updateScore(1);
-        }
-     box.style.left = `${getRandomCoordinates(currentTarget.offsetWidth)}px`;
-     box.style.top = `${getRandomCoordinates(currentTarget.offsetHeight)}px`;
+function updateView(){
+    img.setAttribute('src', slider.currentSlide);
 }
 
-function updateScore(step = 0) {
-    scoreCount += step;
-    score.textContent = scoreCount;
+
+const buttonHandler = (direction = 'next') => {
+    return function(){
+        slider.currentIndex = slider[direction];
+        updateView();
+    }
 }
 
-function getRandomCoordinates(max){
-    return Math.floor(Math.random() * max);
-}
+prevBtn.addEventListener('click', buttonHandler('prev'));
+
+nextBtn.addEventListener('click', buttonHandler('next'));
+
+
+updateView();

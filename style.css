@@ -2,28 +2,34 @@ body {
    margin: 0;
 }
 
-.field {
-    width: 500px;
-    height: 500px;
-    background-color: bisque;
-    border: 2px solid black;
+.slider-wrapper {
     position: relative;
-    overflow: hidden;
+    width: 600px;
+    height: 450px;
 }
 
-#coodinats {
-    background-color: blanchedalmond;
-    border: 1px solid red;
-    width: 100px;
-    height: 100px;
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-#box {
-    width: 80px;
-    height: 80px;
-    background-color: green;
-    border: 1px solid black;
+.btn {
     position: absolute;
-    top: 50px;
-    transition: all 0.5s ease;
+    border: none;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.517);
+    color: white;
+    font-size: 1.5em;
+}
+
+.prevBtn {
+    top: 50%;
+    left: 0;
+}
+
+.nextBtn {
+    top: 50%;
+    right: 0;
 }
