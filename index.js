@@ -1,13 +1,10 @@
-const [clsBtn, opnBtn] = document.querySelectorAll('button');
+const btnCollection = document.querySelectorAll('section > button');
 
-clsBtn.addEventListener('mouseover', switcher);
-opnBtn.addEventListener('mouseover', switcher);
 
-clsBtn.addEventListener('mouseleave', switcher);
-opnBtn.addEventListener('mouseleave', switcher);
+for (const btn of btnCollection) {
+    btn.addEventListener('click', clickHandler)
+}
 
-function switcher() {
-    let tmp = clsBtn.textContent;
-    clsBtn.textContent = opnBtn.textContent;
-    opnBtn.textContent = tmp;
+function clickHandler ({target, target: {parentNode, dataset: {color}}} ) {
+   parentNode.style.backgroundColor = color;
 }
