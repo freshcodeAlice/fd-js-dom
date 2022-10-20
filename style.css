@@ -1,11 +1,21 @@
 body {
    margin: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   background-color: beige;
 }
-section {
-    border: 1px solid black;
+.wrapper {
+    width: 200px;
+    background-color: blanchedalmond;
+    border: 2px solid salmon;
+    border-radius: 10px;
+
+    padding: 25px;
 }
 
-.img {
-    width: 200px;
-    height: 200px;
+form {
+    display: flex;
+    flex-direction: column;
 }
