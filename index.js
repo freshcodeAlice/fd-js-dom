@@ -1,3 +1,13 @@
-const h1 = document.querySelector('h1');
-console.log(h1);
-h1.textContent = 'THE TEXT';
+const [clsBtn, opnBtn] = document.querySelectorAll('button');
+
+clsBtn.addEventListener('mouseover', switcher);
+opnBtn.addEventListener('mouseover', switcher);
+
+clsBtn.addEventListener('mouseleave', switcher);
+opnBtn.addEventListener('mouseleave', switcher);
+
+function switcher() {
+    let tmp = clsBtn.textContent;
+    clsBtn.textContent = opnBtn.textContent;
+    opnBtn.textContent = tmp;
+}
