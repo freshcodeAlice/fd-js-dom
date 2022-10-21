@@ -1,23 +1,25 @@
 const root = document.querySelector('#root');
-const toggler = document.querySelector('.toggler');
-/*
-Створити квадрат 100 на 100пкс і відобразити його на сторінці
-(він має бути дитиною div#root)
 
+/*
+Зробити таку структуру
+<article>
+    <h1>Header</h1>
+    <p>TEXT</p>
+</article>
+
+І відобразити на екрані, маючи в html тільки 
+<div id="root">
+ (ОСЬ ТУТ))
+</div> 
 */
 
+const article = document.createElement('article');
+const h1 = document.createElement('h1');
+const p = document.createElement('p');
 
-const lamp = document.createElement('div');
+h1.append('Header');
+p.append('TEXT');
 
-lamp.classList.add('lamp','lamp-off');
-root.append(lamp);
+article.append(h1, p);
 
-
-toggler.addEventListener('click', toggle);
-
-function toggle() {
-    lamp.classList.toggle('lamp-off');
-    lamp.classList.toggle('lamp-on');
-
-    console.log(lamp.classList);
-}
+root.append(article);
