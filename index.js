@@ -1,11 +1,16 @@
-/*
-Динамічне створення елементу
+const root = document.querySelector('#root');
 
-1. Створити об'єкт елемента і отримати адресу цього об'єкта в пам'яті
-2. Доєднати елемент до батьківського (приаппендити)
+/*
+Створити квадрат 100 на 100пкс і відобразити його на сторінці
+(він має бути дитиною div#root)
 
 */
 
-const element = document.createElement('h1');
-element.textContent = 'Hello, DOM';
-document.body.append(element);
+
+const square = document.createElement('div');
+square.style.width = '100px';
+square.style.height = '100px';
+square.style.border = '1px solid black';
+
+
+root.append(square);
