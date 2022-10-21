@@ -1,25 +1,22 @@
 const root = document.querySelector('#root');
 
-/*
-Зробити таку структуру
-<article>
-    <h1>Header</h1>
-    <p>TEXT</p>
-</article>
+const array = [
+    './images/136acde59b8ec0fc271f534e3f5a6494.jpeg',
+    './images/1617079715_51-p-oboi-priroda-vecher-53.jpg',
+    './images/1622211351_27-oir_mobi-p-russkaya-priroda-priroda-krasivo-foto-28.jpg',
+    './images/Живая-природа.jpg',
+    './images/Desert_Electric.jpg'
+]
+function createImage(imgSrc) {
+    const img = document.createElement('img');
+    img.setAttribute('src', imgSrc);
+    img.classList.add('img');
+    return img;
+}
 
-І відобразити на екрані, маючи в html тільки 
-<div id="root">
- (ОСЬ ТУТ))
-</div> 
+/*
+Відобразити 5 картиночок всередині div#root
 */
 
-const article = document.createElement('article');
-const h1 = document.createElement('h1');
-const p = document.createElement('p');
-
-h1.append('Header');
-p.append('TEXT');
-
-article.append(h1, p);
-
-root.append(article);
+const imageArray = array.map(createImage);
+root.append(...imageArray);
