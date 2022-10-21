@@ -1,5 +1,5 @@
 const root = document.querySelector('#root');
-
+const toggler = document.querySelector('.toggler');
 /*
 Створити квадрат 100 на 100пкс і відобразити його на сторінці
 (він має бути дитиною div#root)
@@ -7,10 +7,17 @@ const root = document.querySelector('#root');
 */
 
 
-const square = document.createElement('div');
-square.style.width = '100px';
-square.style.height = '100px';
-square.style.border = '1px solid black';
+const lamp = document.createElement('div');
+
+lamp.classList.add('lamp','lamp-off');
+root.append(lamp);
 
 
-root.append(square);
+toggler.addEventListener('click', toggle);
+
+function toggle() {
+    lamp.classList.toggle('lamp-off');
+    lamp.classList.toggle('lamp-on');
+
+    console.log(lamp.classList);
+}
