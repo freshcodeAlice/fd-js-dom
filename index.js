@@ -1,22 +1,19 @@
-const root = document.querySelector('#root');
+console.log(userData);
 
-const array = [
-    './images/136acde59b8ec0fc271f534e3f5a6494.jpeg',
-    './images/1617079715_51-p-oboi-priroda-vecher-53.jpg',
-    './images/1622211351_27-oir_mobi-p-russkaya-priroda-priroda-krasivo-foto-28.jpg',
-    './images/Живая-природа.jpg',
-    './images/Desert_Electric.jpg'
-]
-function createImage(imgSrc) {
-    const img = document.createElement('img');
-    img.setAttribute('src', imgSrc);
-    img.classList.add('img');
-    return img;
-}
 
-/*
-Відобразити 5 картиночок всередині div#root
+/* TODO:
+
+Частина 1:
+Динамічно створити картки юзерів з даними, що містяться в масиві userData
+Приклад вигляду картки юзера:
+https://pbs.twimg.com/media/EIopEQ6XYAEqzUk.jpg
+(всі картки одночасно на екрані)
+
+В html тільки <div id="root"></div>
+
+Частина 2:
+За натиснення на картку юзера картка має підсвітитися червоним бордером - картка "обрана"
+Якщо обрати іншу картку, то з попередньої картки підсвітка знімається.
+Тобто одночасно може бути обрана тільки одна картка.
+
 */
-
-const imageArray = array.map(createImage);
-root.append(...imageArray);
