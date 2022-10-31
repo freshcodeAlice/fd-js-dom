@@ -19,6 +19,14 @@ const root = document.querySelector('#root');
 
 const cardArray = userData.map(user => createUserCard(user));
 
+
+/* TODO:
+1. Refactor repeating code
+2. Create image placeholder: first Letter of name + random color
+3. Dont show image while it's downloading.
+
+*/
+
 function createUserCard(user){
   
     const wrapper = document.createElement('div');
@@ -40,7 +48,20 @@ function createUserCard(user){
     button.append('Connent');
 
     wrapper.append(img, h2, p, button);
+    wrapper.addEventListener('click', getActiveCard);
     return wrapper;
 }
 
 root.append(...cardArray);
+
+
+function getActiveCard(event){
+    const activeCard = document.querySelector('.active');
+    if (activeCard === event.currentTarget) {
+        return;
+    }
+    if(activeCard){
+        activeCard.classList.remove('active');
+    }
+    event.currentTarget.classList.add('active');
+}

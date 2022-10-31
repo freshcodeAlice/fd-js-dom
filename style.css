@@ -28,3 +28,11 @@
     border-radius: 50%;
     object-fit: cover;
 }
+
+
+.active {
+    border: 2px solid red;
+-webkit-box-shadow: 6px 10px 20px 0px rgba(194,192,194,1);
+-moz-box-shadow: 6px 10px 20px 0px rgba(194,192,194,1);
+box-shadow: 6px 10px 20px 0px rgba(194,192,194,1);
+}
